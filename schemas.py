@@ -1,18 +1,21 @@
 from pydantic import BaseModel
 
-class AlunoBase(BaseModel):
+class AlunoCreate(BaseModel):
     nome: str
     idade: int
-    nota_primeiro_semestre: float
-    nota_segundo_semestre: float
+    nota_primeiro_semestre: int
+    nota_segundo_semestre: int
     nome_professor: str
     numero_sala: int
 
-class AlunoCreate(AlunoBase):
-    pass
-
-class Aluno(AlunoBase):
+class Aluno(BaseModel):
     id: int
+    nome: str
+    idade: int
+    nota_primeiro_semestre: int
+    nota_segundo_semestre: int
+    nome_professor: str
+    numero_sala: int
 
     class Config:
         orm_mode = True
